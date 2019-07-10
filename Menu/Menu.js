@@ -45,7 +45,7 @@ function createMenu(listOfLinks) {
   const menuButton = document.querySelector(".menu-button");
 
   // Add a menu class to the "menu" div
-  menu.classList.add("menu");
+  menu.classList.add("menu", "animated", "slideInLeft");
 
   // Add the newly created <ul> as a child of <div class="menu">
   menu.append(linkContainer);
