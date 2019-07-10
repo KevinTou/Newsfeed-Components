@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Pokemon Season One Opening",
+    date: "Jan 18th, 2019",
+    firstParagraph: `I want to be the very best`,
+
+    secondParagraph: `That no one ever was...`,
+
+    thirdParagraph: `To catch them is my real test, to train them is my cause!!!`
+  },
+  {
+    title: "What Should You Learn in 2019",
+    date: "Mar 3rd, 2019",
+    firstParagraph: `What you should learn in 2019`,
+
+    secondParagraph: `is`,
+
+    thirdParagraph: `how to... to be continued`
   }
 ];
 
@@ -131,11 +149,13 @@ function createArticle(item) {
   const secondParagraph = document.createElement("p");
   const thirdParagraph = document.createElement("p");
   const expandButton = document.createElement("span");
+  const closeButton = document.createElement("span");
 
   // Add classes elements
   article.classList.add("article");
   articleDate.classList.add("date");
   expandButton.classList.add("expandButton");
+  closeButton.classList.add("close");
 
   article.append(articleTitle);
   article.append(articleDate);
@@ -143,6 +163,7 @@ function createArticle(item) {
   article.append(secondParagraph);
   article.append(thirdParagraph);
   article.append(expandButton);
+  article.append(closeButton);
 
   // Add text to elements
   articleTitle.textContent = item.title;
@@ -151,10 +172,19 @@ function createArticle(item) {
   secondParagraph.textContent = item.secondParagraph;
   thirdParagraph.textContent = item.thirdParagraph;
   expandButton.textContent = "Expand";
+  closeButton.textContent = "X";
+
+  // Add styles to close button
+  closeButton.style.cursor = "pointer";
+  closeButton.style.fontWeight = "bold";
 
   // Add event listener to expand button
   expandButton.addEventListener("click", () => {
     article.classList.toggle("article-open");
+  });
+
+  closeButton.addEventListener("click", () => {
+    article.style.display = "none";
   });
 
   return article;
