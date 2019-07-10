@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -33,3 +33,35 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+// Create a reference to the header and add the "menu" to it
+const header = document.querySelector(".header");
+header.append(createMenu(menuItems));
+
+function createMenu(listOfLinks) {
+  // Create element structure
+  const menu = document.createElement("div");
+  const linkContainer = document.createElement("ul");
+  const menuButton = document.querySelector(".menu-button");
+
+  // Add a menu class to the "menu" div
+  menu.classList.add("menu");
+
+  // Add the newly created <ul> as a child of <div class="menu">
+  menu.append(linkContainer);
+
+  // Go through the array of link names, create and add it to the <ul>
+  listOfLinks.forEach(linkItem => {
+    const newLink = document.createElement("li");
+    newLink.textContent = linkItem;
+
+    linkContainer.append(newLink);
+  });
+
+  // Add an event listener to the menu button that will toggle the display
+  menuButton.addEventListener("click", () => {
+    menu.classList.toggle("menu--open");
+  });
+
+  return menu;
+}
