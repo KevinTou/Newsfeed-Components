@@ -118,18 +118,11 @@ const articleContainer = document.querySelector(".articles");
 
 // Map over the array of objects and create article components
 data.map(item => {
-  articleContainer.append(
-    createArticle(
-      item.title,
-      item.date,
-      item.firstParagraph,
-      item.secondParagraph,
-      item.thirdParagraph
-    )
-  );
+  articleContainer.append(createArticle(item));
 });
 
-function createArticle(title, date, first, second, third) {
+// function createArticle(title, date, first, second, third) {
+function createArticle(item) {
   // Create elements structure
   const article = document.createElement("div");
   const articleTitle = document.createElement("h2");
@@ -152,11 +145,11 @@ function createArticle(title, date, first, second, third) {
   article.append(expandButton);
 
   // Add text to elements
-  articleTitle.textContent = title;
-  articleDate.textContent = date;
-  firstParagraph.textContent = first;
-  secondParagraph.textContent = second;
-  thirdParagraph.textContent = third;
+  articleTitle.textContent = item.title;
+  articleDate.textContent = item.date;
+  firstParagraph.textContent = item.firstParagraph;
+  secondParagraph.textContent = item.secondParagraph;
+  thirdParagraph.textContent = item.thirdParagraph;
   expandButton.textContent = "Expand";
 
   // Add event listener to expand button
